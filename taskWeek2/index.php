@@ -1,6 +1,6 @@
 <?php
-include('path.php');
-include(ROOT_PATH ."/controllers/RegisterController.php");
+include('../path.php');
+include(ROOT_PATH ."/taskWeek2/controllers/RegisterController.php");
 ?>
 
 <!doctype html>
@@ -15,7 +15,7 @@ include(ROOT_PATH ."/controllers/RegisterController.php");
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
               crossorigin="anonymous">
 
-        <title>Login</title>
+        <title>Registration</title>
     </head>
     <body>
         <div class="container">
@@ -27,19 +27,21 @@ include(ROOT_PATH ."/controllers/RegisterController.php");
                         the user details in session...
                         <span style="color: red">Please Start from here to get the seamless execution of the task</span> </p>
                 </div>
-                <form>
+                <form method="post" >
+                    <?php include(ROOT_PATH . "/taskWeek2/helpers/formError.php"); ?>
                     <h5 class="h3 mb-3 fw-normal">Please Register With us</h5>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <label for="floatingInput">first Name</label>
-                                <input type="text" class="form-control" id="floatingInput" placeholder="John">
+                                <input type="text" name="firstName" class="form-control" value="<?php echo $firstName; ?>" id="floatingInput" placeholder="John">
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <label for="floatingInput">last Name</label>
-                                <input type="text" class="form-control" id="floatingInput" placeholder="Doe">
+                                <input type="text" name="lastName" class="form-control" value="<?php echo $lastName;?>" id="floatingInput" placeholder="Doe">
                             </div>
                         </div>
                     </div>
@@ -47,13 +49,13 @@ include(ROOT_PATH ."/controllers/RegisterController.php");
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <label for="floatingInput">Phone Number</label>
-                                <input type="number" min="0" class="form-control" id="floatingInput" placeholder="081**********">
+                                <input type="number" name="phoneNumber" min="0" class="form-control" value="<?php echo $phoneNumber;?>" id="floatingInput" placeholder="081**********">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <label for="floatingInput">Email address</label>
-                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                <input type="email" name="email" class="form-control" value="<?php echo $email; ?>" id="floatingInput" placeholder="name@example.com">
                             </div>
                         </div>
                     </div>
@@ -61,13 +63,13 @@ include(ROOT_PATH ."/controllers/RegisterController.php");
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <label for="floatingPassword">Password</label>
-                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                <input type="password" name="password" class="form-control" value="<?php echo $password;?>" id="floatingPassword" placeholder="Password">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <label for="floatingPassword">Confirm Password</label>
-                                <input type="password" class="form-control" id="floatingPassword" placeholder="Re-type your password">
+                                <input type="password" name="passwordConf" class="form-control" id="floatingPassword" value="<?php echo $passwordConf;?>" placeholder="Re-type your password">
                             </div>
                         </div>
                     </div>
@@ -78,7 +80,7 @@ include(ROOT_PATH ."/controllers/RegisterController.php");
                     </div>
 
                     <div class="text-center">
-                    <button class="w-50 btn btn-lg btn-primary" type="submit">Register</button>
+                    <button class="w-50 btn btn-lg btn-primary" type="submit" name="register_btn">Register</button>
 
                     <p class="mt-5 mb-3 text-muted">© <?php echo date('Y') ?></p>
                     </div>

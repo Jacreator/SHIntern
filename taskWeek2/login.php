@@ -1,6 +1,6 @@
 <?php
-include ('path.php');
-include (ROOT_PATH . "/controllers/LoginController.php");
+include('../path.php');
+include (ROOT_PATH . "/taskWeek2/controllers/LoginController.php");
 ?>
 
 <!doctype html>
@@ -26,16 +26,27 @@ include (ROOT_PATH . "/controllers/LoginController.php");
                         registration, and some basic validation functionalities without the use of database. and store
                         the user details in session</p>
                 </div>
-                <form>
+                <?php if(isset($_SESSION['message'])): ?>
+                    <div class="alert alert-<?php echo $_SESSION['type']; ?>">
+                        <li><?php echo $_SESSION['message']; ?></li>
+                        <?php
+                        unset($_SESSION['message']);
+                        unset($_SESSION['type']);
+                        ?>
+                    </div>
+                <?php endif; ?>
+                <form method="post">
                     <h5 class="h3 mb-3 fw-normal">Please sign in</h5>
-
+                    <?php if (isset($errors)) {
+                        include(ROOT_PATH . "/taskWeek2/helpers/formError.php");
+                    }  ?>
                     <div class="form-floating">
                         <label for="floatingInput">Email address</label>
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <input type="email" name="email" value="<?php echo $email;?>" class="form-control" id="floatingInput" placeholder="name@example.com">
                     </div>
                     <div class="form-floating">
                         <label for="floatingPassword">Password</label>
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
                     </div>
 
                     <div class="checkbox mb-3">
@@ -43,8 +54,11 @@ include (ROOT_PATH . "/controllers/LoginController.php");
                             <input type="checkbox" value="remember-me"> Remember me
                         </label>
                     </div>
-                    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-                    <p class="mt-5 mb-3 text-muted">© <?php echo date('Y') ?></p>
+                    <div class="text-center">
+                        <button class="w-50 btn btn-lg btn-primary" name="login_btn" type="submit">Sign in</button>
+                        <p class="mt-5 mb-3 text-muted">© <?php echo date('Y') ?></p>
+                    </div>
+
                 </form>
             </main>
         </div>
