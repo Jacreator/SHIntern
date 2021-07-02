@@ -9,13 +9,26 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>task One</title>
   </head>
 
   <body class="bg-light" data-new-gr-c-s-check-loaded="14.1015.0" data-gr-ext-installed="">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+              <li class="nav-item active">
+                  <a class="nav-link" href="../LogoutHelper.php">Logout <span class="sr-only">(current)</span></a>
+              </li>
+
+          </ul>
+      </div>
+  </nav>
   <div class="container">
+
+
       <div class="py-5 text-center">
+
           <h2>SH Intern</h2>
           <p class="lead">This is a simple task for week One of Side hustle internship. To make a user defined range of numbers function from two input gotten from the user and Add them up with a user created sum function  </p>
       </div>
