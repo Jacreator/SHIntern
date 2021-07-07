@@ -18,7 +18,7 @@ if (isset($_POST['register_btn'])) {
     $_POST = test_input($_POST);
 
     if (count($errors) === 0) {
-        unset($_POST['register-btn'], $_POST['passwordConf']);
+        unset($_POST['register_btn'], $_POST['passwordConf']);
         $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
             loginUser($_POST);
 
